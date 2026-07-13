@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💻 Refactorización: Calculadora de Nómina Regional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #1e293b;
+            max-width: 550px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #38bdf8;
+            font-size: 24px;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #f8fafc;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0369a1;
+        }
+
+        .resultado-box {
+            margin-top: 25px;
+            background-color: #0f172a;
+            padding: 20px;
+            border-left: 4px solid #38bdf8;
+            border-radius: 6px;
+        }
+
+        .resultado-linea {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #cbd5e1;
+        }
+
+        .resultado-linea.total {
+            font-weight: bold;
+            font-size: 18px;
+            color: #38bdf8;
+            border-top: 1px solid #334155;
+            padding-top: 12px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sistema de Cálculo Salarial Refactorizado</h2>
+    
+    <div class="form-group">
+        <label for="salarioBase">Salario Base ($):</label>
+        <input type="number" id="salarioBase" placeholder="Ej. 500.00" min="0" step="0.01">
+    </div>
+
+    <div class="form-group">
+        <label for="tasaRetencion">Base de Retención Numérica:</label>
+        <input type="number" id="tasaRetencion" placeholder="Ej. 50.00" min="0" step="0.01">
+    </div>
+
+    <div class="form-group">
+        <label for="codigoRegion">Región / País del Empleado:</label>
+        <select id="codigoRegion">
+            <option value="SV">El Salvador (SV) - Aplica Bono de $13.00</option>
+            <option value="EXT">Extranjero / Otra Región</option>
+        </select>
+    </div>
+
+    <button onclick="procesarNomina()">Calcular Salario Neto</button>
+
+    <div class="resultado-box">
+        <div class="resultado-linea">
+            <span>Salario Bruto Original:</span>
+            <span id="resBruto">$0.00</span>
+        </div>
+        <div class="resultado-linea">
+            <span>Deducción Aplicada (15%):</span>
+            <span id="resDeduccion">-$0.00</span>
+        </div>
+        <div class="resultado-linea">
+            <span>Ajuste / Bono de Ley Regional:</span>
+            <span id="resBono">+$0.00</span>
+        </div>
+        <div class="resultado-linea total">
+            <span>Salario Neto Neto a Recibir:</span>
+            <span id="resNeto">$0.00</span>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
