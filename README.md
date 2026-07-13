@@ -5,7 +5,7 @@ Este repositorio contiene la resolución del **Reto de Código Mudo**, aplicando
 ---
 
 ## 1. Análisis Técnico del Código "Mudo" Original
-El bloque de código heredado analizaba una operación matemática sin nombres descriptivos, lo que dificultaba su comprensión inmediata por el equipo de desarrollo.
+
 
 ```javascript
 
